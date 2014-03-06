@@ -1,9 +1,10 @@
 --
 -- Author: sundyhy@163.com
--- Date: 2014-01-16 15:53:08
+-- Date: 2014-03-06 14:50:41
 --
 
-require("scripts/app/base/Util.lua");
+require("scripts/app/base/Utils.lua");
+require("scripts/app/scenes/StartScene.lua");
 
 LogoScene = class("LogoScene", function()
     return display.newScene("LogoScene")
@@ -24,9 +25,9 @@ function LogoScene:ctor()
 
     local actionArr = CCArray:create();
 
-    local fadeIn = CCFadeIn:create(0.1);
-    local delay = CCDelayTime:create(0.1);
-    local fadeOut = CCFadeOut:create(0.1);
+    local fadeIn = CCFadeIn:create(2.0);
+    local delay = CCDelayTime:create(2.0);
+    local fadeOut = CCFadeOut:create(2.0);
     local call = CCCallFunc:create(callFunc(self, self.changeToLogin));
     actionArr:addObject(fadeIn);
     actionArr:addObject(delay);
@@ -37,8 +38,7 @@ function LogoScene:ctor()
 end
 
 function LogoScene:changeToLogin()
-    require("scripts/app/scenes/MenuScene.lua");
-    display.replaceScene(MenuScene.new());
+    display.replaceScene(StartScene.new());
 end
 
 function LogoScene:onEnter()

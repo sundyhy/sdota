@@ -4,21 +4,21 @@
 --
 
 require("config")
-require("app.framework.init")
-require("app.framework.shortcodes")
-require("app.framework.cc.init")
+require("framework.init")
+require("framework.shortcodes")
+require("framework.cc.init")
 
-require("scripts/app/base/Util.lua");
+require("scripts/app/base/Utils.lua");
 require("scripts/app/scenes/LogoScene.lua");
 
-GameState = require("app.framework.api.GameState");
+GameState = require("framework.api.GameState");
 
-local MyApp = class("MyApp", cc.mvc.AppBase);
+local MyApp = class("MyApp", cc.mvc.AppBase)
 
 function MyApp:ctor()
     MyApp.super.ctor(self);
 
-    GameState.init(function(param)
+     GameState.init(function(param)
 		local retValue = nil;
 		if param.errorCode then
 			ccLog("load game data error!!!");
@@ -45,6 +45,8 @@ end
 
 function MyApp:run()
     CCFileUtils:sharedFileUtils():addSearchPath("res/");
+    CCFileUtils:sharedFileUtils():addSearchPath("res/Resources");
+
     display.replaceScene(LogoScene.new());
 end
 

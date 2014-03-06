@@ -1,10 +1,7 @@
--- -------------------------------------------------------------------------
---	文件名		：	Plistmgr.lua
---	创建者		：	Sundyhy
---	创建时间	：	2013/12/5 17:18:57
---	功能描述	：	plist文件的加载
 --
--- -----------------------------------------------------------------------*/
+-- Author: sundyhy@163.com
+-- Date: 2014-03-06 15:32:28
+--
 
 PlistMgr = class("PlistMgr");
 
@@ -75,4 +72,3 @@ function PlistMgr:getScale9Sprite(listFileName, spriteName)
 end
 
 g_PlistMgr = g_PlistMgr or PlistMgr.new();
-
